@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace CompanyMannager.Filters
 {
+    /// <summary>
+    /// Filter for rejecting not authorized requests
+    /// </summary>
     public class BasicAuthFilter : ActionFilterAttribute
     {
         private readonly string Username = "admin";

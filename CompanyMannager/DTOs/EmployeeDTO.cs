@@ -6,8 +6,16 @@ using CompanyMannager.Validation;
 
 namespace CompanyMannager.DTOs
 {
+    /// <summary>
+    /// Dto for transferring data about employee
+    /// </summary>
     public class EmployeeDTO
     {
+        /// <summary>
+        /// Method that gets employee dto from employee model
+        /// </summary>
+        /// <param name="employee">employee model</param>
+        /// <returns>employee dto</returns>
         public static EmployeeDTO GetFromEmployee(Employee employee)
         {
             return new EmployeeDTO()

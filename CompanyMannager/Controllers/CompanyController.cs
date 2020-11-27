@@ -22,7 +22,7 @@ namespace CompanyMannager.Controllers
             _logger = logger;
             _companiesRepository = companiesRepository;
         }
-
+    
         [BasicAuthFilter]
         [HttpPost("/company/create")]
         public async Task<IActionResult> Create(CompanyDTO companyDTO)

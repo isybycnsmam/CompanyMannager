@@ -2,12 +2,19 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CompanyMannager.DTOs;
-using CompanyMannager.Enums;
 
 namespace CompanyMannager.Models
 {
+    /// <summary>
+    /// Model for storing information about employee
+    /// </summary>
     public sealed class Employee
     {
+        /// <summary>
+        /// Method that gets employee model from emplyee dto
+        /// </summary>
+        /// <param name="employeeDTO">employee dto</param>
+        /// <returns>employee model</returns>
         public static Employee GetFromDTO(EmployeeDTO employeeDTO)
         {
             return new Employee()

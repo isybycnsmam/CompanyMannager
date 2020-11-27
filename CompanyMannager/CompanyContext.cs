@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyMannager
 {
+    /// <summary>
+    /// Companies dbContext
+    /// </summary>
     public sealed class CompanyContext : DbContext
     {
         public CompanyContext(DbContextOptions<CompanyContext> options)
@@ -12,6 +15,7 @@ namespace CompanyMannager
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // this converts job title from string to enum(int)
             modelBuilder.Entity<Employee>()
                 .Property(e => e.JobTitle)
                 .HasConversion(

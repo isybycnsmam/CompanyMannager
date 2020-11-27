@@ -5,8 +5,16 @@ using CompanyMannager.DTOs;
 
 namespace CompanyMannager.Models
 {
+    /// <summary>
+    /// Model for storing information about company in db
+    /// </summary>
     public sealed class Company
     {
+        /// <summary>
+        /// Method that creates new company from dto
+        /// </summary>
+        /// <param name="companyDTO">company dto</param>
+        /// <returns>company with initialized employees list</returns>
         public static Company GetNewFromDTO(CompanyDTO companyDTO)
         {
             Company company = new();
@@ -15,6 +23,10 @@ namespace CompanyMannager.Models
             return company;
         }
 
+        /// <summary>
+        /// Method that updates current company with dto
+        /// </summary>
+        /// <param name="companyDTO">company dto</param>
         public void UpdateByDTO(CompanyDTO companyDTO)
         {
             Name = companyDTO.Name;

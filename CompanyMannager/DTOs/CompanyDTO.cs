@@ -4,8 +4,16 @@ using CompanyMannager.Models;
 
 namespace CompanyMannager.DTOs
 {
+    /// <summary>
+    /// Dto for transferring data about company
+    /// </summary>
     public class CompanyDTO
     {
+        /// <summary>
+        /// Method that gets company DTO from company model
+        /// </summary>
+        /// <param name="company">company model</param>
+        /// <returns>CompanyDTO with initialized employees</returns>
         public static CompanyDTO GetFromCompany(Company company)
         {
             CompanyDTO companyDTO = new()
