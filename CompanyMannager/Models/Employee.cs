@@ -14,7 +14,7 @@ namespace CompanyMannager.Models
             {
                 FirstName = employeeDTO.FirstName,
                 LastName = employeeDTO.LastName,
-                DateOfBirth = employeeDTO.DateOfBirth,
+                DateOfBirth = employeeDTO.DateOfBirth.Value,
                 JobTitle = employeeDTO.JobTitle
             };
         }
@@ -25,7 +25,7 @@ namespace CompanyMannager.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public JobTitle JobTitle { get; set; }
+        public string JobTitle { get; set; }
 
         [ForeignKey("Company")]
         public long CompanyId { get; set; }

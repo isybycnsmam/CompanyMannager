@@ -26,11 +26,6 @@ namespace CompanyMannager.Controllers
         [HttpPost("/company/create")]
         public async Task<IActionResult> Create(CompanyDTO companyDTO)
         {
-            if (ModelState.IsValid == false)
-            {
-                return BadRequest();
-            }
-
             // add new company dto
             Company company = Company.GetNewFromDTO(companyDTO);
             await _companiesRepository.Add(company);
@@ -57,11 +52,6 @@ namespace CompanyMannager.Controllers
         {
             try
             {
-                if (ModelState.IsValid == false)
-                {
-                    return BadRequest();
-                }
-
                 // get company by id
                 Company company = await _companiesRepository.GetById(id);
                 // change data with with dto

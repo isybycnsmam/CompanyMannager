@@ -24,7 +24,10 @@ namespace CompanyMannager.DTOs
         [Required(AllowEmptyStrings = false)]
         public string LastName { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
-        public JobTitle JobTitle { get; set; }
+        [Required]
+        public DateTime? DateOfBirth { get; set; }
+        
+        [Required]
+        public string JobTitle { get; set; }
     }
 }
