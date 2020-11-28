@@ -5,6 +5,7 @@ using CompanyMannager.DTOs;
 using CompanyMannager.Models;
 using System;
 using System.Linq;
+using CompanyMannager.Filters;
 
 namespace CompanyMannager.Controllers
 {
@@ -22,7 +23,7 @@ namespace CompanyMannager.Controllers
             _companiesRepository = companiesRepository;
         }
 
-
+        [BasicAuthFilter]
         [HttpPost("/company/create")]
         public async Task<IActionResult> Create(CompanyDTO companyDTO)
         {
@@ -47,6 +48,7 @@ namespace CompanyMannager.Controllers
             return Ok(response);
         }
 
+        [BasicAuthFilter]
         [HttpPut("/company/update/{id}")]
         public async Task<IActionResult> Update(long id, CompanyDTO companyDTO)
         {
@@ -67,6 +69,7 @@ namespace CompanyMannager.Controllers
             }
         }
 
+        [BasicAuthFilter]
         [HttpDelete("/company/delete/{id}")]
         public async Task<IActionResult> Delete(long id)
         {
