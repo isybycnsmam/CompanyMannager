@@ -20,7 +20,8 @@ namespace CompanyMannager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CompanyContext>(options =>
-                options.UseInMemoryDatabase("CompanyMannager"));
+				options.UseMySql(
+					Configuration.GetConnectionString("CompanyMannager")));
 
             services.AddScoped<ICompaniesRepository, CompaniesRepository>();
 
