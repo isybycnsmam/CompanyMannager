@@ -22,6 +22,8 @@ namespace CompanyMannager
             services.AddDbContext<CompanyContext>(options =>
                 options.UseInMemoryDatabase("CompanyMannager"));
 
+            services.AddScoped<ICompaniesRepository, CompaniesRepository>();
+
             services.AddControllers();
         }
 
