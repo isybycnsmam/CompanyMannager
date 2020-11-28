@@ -55,18 +55,13 @@ namespace CompanyMannager
                         e.LastName.Contains(searchDTO.Keyword)));
             }
 
-            // apply employy birth date from filter
-            if (searchDTO.EmployeeDateOfBirthFrom is not null)
+            // apply employy birth date filter
+            if (searchDTO.EmployeeDateOfBirthFrom is not null || searchDTO.EmployeeDateOfBirthTo is not null)
             {
                 companies = companies.Where(e =>
-                    e.Employees.Any(e => e.DateOfBirth > searchDTO.EmployeeDateOfBirthFrom));
-            }
-
-            // apply employy birth date to filter
-            if (searchDTO.EmployeeDateOfBirthTo is not null)
-            {
-                companies = companies.Where(e =>
-                    e.Employees.Any(e => e.DateOfBirth < searchDTO.EmployeeDateOfBirthTo));
+                    e.Employees.Any(e =>
+                        (searchDTO.EmployeeDateOfBirthFrom != null ? e.DateOfBirth >= searchDTO.EmployeeDateOfBirthFrom : true) &&
+                        (searchDTO.EmployeeDateOfBirthTo != null ? e.DateOfBirth <= searchDTO.EmployeeDateOfBirthTo : true)));
             }
 
             // apply job titles filter
