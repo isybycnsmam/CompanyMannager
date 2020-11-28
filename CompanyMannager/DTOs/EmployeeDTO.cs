@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using CompanyMannager.Enums;
 using CompanyMannager.Models;
+using CompanyMannager.Validation;
 
 namespace CompanyMannager.DTOs
 {
@@ -14,7 +15,7 @@ namespace CompanyMannager.DTOs
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 DateOfBirth = employee.DateOfBirth,
-                JobTitle = employee.JobTitle
+                JobTitle = employee.JobTitle.ToString()
             };
         }
 
@@ -26,8 +27,9 @@ namespace CompanyMannager.DTOs
 
         [Required]
         public DateTime? DateOfBirth { get; set; }
-        
+
         [Required]
+        [EnumAsString(TargetEnum = typeof(JobTitle))]
         public string JobTitle { get; set; }
     }
 }
