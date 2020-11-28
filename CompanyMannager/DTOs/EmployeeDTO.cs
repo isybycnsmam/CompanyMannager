@@ -28,7 +28,6 @@ namespace CompanyMannager.DTOs
         [Required]
         public DateTime? DateOfBirth { get; set; }
 
-        [Required]
         [EnumAsString(TargetEnum = typeof(JobTitle))]
         public string JobTitle { get; set; }
     }
